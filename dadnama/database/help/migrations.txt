@@ -1,0 +1,26 @@
+php artisan migrate
+lv = php artisan
+
+lv make:migration create_templates_table --create=templates
+lv make:migration create_user_templates_table --create=user_templates
+
+lv make:migration create_educationales_table --create=educationales
+
+lv  make:migration create_statistics_table --create=statistics
+
+lv  make:migration create_about_templates_table --create=about_templates
+
+lv  make:migration create_resumes_table --create=resumes
+
+lv  make:migration create_photo_types_table --create=photo_types
+lv  make:migration create_photos_table --create=photos
+
+lv  make:migration create_skills_table --create=skills
+lv  make:migration create_user_skills_table --create=user_skills
+
+lv  make:migration create_court_cases_table --create=court_cases
+
+lv  make:migration create_network_types_table --create=network_types
+lv  make:migration create_networks_table --create=networks
+
+lv make:migration create_user_setting_table --create=user_settings

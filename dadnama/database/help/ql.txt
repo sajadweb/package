@@ -1,0 +1,11 @@
+
+lv ql:type Location City {"id":"int","title":"string","act":"bolean"}
+
+lv model:make User UserSetting ["id","user_id","domain","type","created_at","updated_at"] user_setting
+lv ql:q Template Statistic
+lv ql:m Template EditAboutTemplate
+lv model:make Location City ["id","state_id","name","act"] cities
+
+lv ql:m Template  DeleteModel
+
+lv ql:q Client Template

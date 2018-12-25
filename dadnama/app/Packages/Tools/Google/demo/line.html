@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polylines</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+    // This example creates a 2-pixel-wide red polyline showing the path of William
+    // Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+    // Brisbane, Australia.
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: {lat: 0, lng: -180},
+            mapTypeId: 'terrain'
+        });
+        var marker = new google.maps.Marker({
+            position:  {lat: 37.772, lng: -122.214},
+            map: map,
+            title: 'Hello World!'
+        });
+        var marker2 = new google.maps.Marker({
+            position:   {lat: -27.467, lng: 153.027},
+            map: map,
+            title: 'Hello World!'
+        });
+        var flightPlanCoordinates = [
+            {lat: 37.772, lng: -122.214},
+            {lat: 21.291, lng: -157.821},
+            {lat: -18.142, lng: 178.431},
+            {lat: -27.467, lng: 153.027}
+        ];
+        var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#8022ff',
+            strokeOpacity: 1.0,
+            strokeWeight: 4
+        });
+        flightPath.setMap(map);
+
+       flightPlanCoordinates.forEach(function (obj) {
+           window.setInterval(function() {
+               console.log(obj)
+
+               marker.set("icons",{
+                   path: google.maps.SymbolPath.CIRCLE,
+                   strokeColor: '#FF0000',
+                   fillColor: '#FF0000',
+                   strokeWeight: 6,
+                   scale: 10,
+                   fillOpacity: 0.35,
+               });
+               marker.setPosition(obj);
+           }, 1500);
+       })
+    }
+    function animateCircle(line) {
+        var count = 0;
+        window.setInterval(function() {
+            count = (count + 1) % 200;
+
+            var icons = line.get('icons');
+            icons[0].offset = (count / 2) + '%';
+            line.set('icons', icons);
+        }, 20);
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk5zw5Y-B3HiVSU5YgHvTNySI_esUfEIw&callback=initMap">
+</script>
+</body>
+</html>

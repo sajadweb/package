@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Markers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: new google.maps.LatLng(29.638184, 52.504677),
+            mapTypeId: 'roadmap'
+        });
+
+
+        var features = [
+            {
+                lat1:29.638184,
+                lng1:52.504677
+            },
+            {
+                lat1:29.638184,
+                lng1:52.504677
+            },
+            {
+                lat1:29.638184,
+                lng1:52.504677
+            },
+            {
+                lat1:29.638184,
+                lng1:52.504677
+            },
+            {
+                lat1:29.638184,
+                lng1:52.504677
+            },
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(feature.lat1, feature.lng1),
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    strokeColor: '#FF0000',
+                    fillColor: '#FF0000',
+                    strokeWeight: 6,
+                    scale: 10,
+                    fillOpacity: 0.35,
+                },
+                map: map
+            });
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk5zw5Y-B3HiVSU5YgHvTNySI_esUfEIw&callback=initMap">
+</script>
+</body>
+</html>

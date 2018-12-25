@@ -1,0 +1,4 @@
+Model: lv model:make Cart Cart ["id","user_id","number","cvv2","yexp","dexp","trash","created_at","name"] carts
+Type: lv ql:type Cart Cart {"id":"int","user":"type","number":"string","cvv2":"string","yexp":"string","dexp":"string","trash":"boolean","created_at":"string","name":"string"}
+Query: lv ql:q Cart UserCarts
+Muitition:  lv ql:m Cart  UserChangeCart

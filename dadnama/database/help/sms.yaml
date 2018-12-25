@@ -1,0 +1,1 @@
+Model: lv model:make User UserVerify ["id","user_id","token","status","type","created_at","expires_at"] user_verifies
